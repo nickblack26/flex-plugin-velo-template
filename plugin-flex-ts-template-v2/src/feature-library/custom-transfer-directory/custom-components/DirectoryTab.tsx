@@ -38,8 +38,8 @@ const DirectoryTab = (props: OwnProps) => {
   // function to filter the entries and trigger a re-render
   const filterDirectory = () => {
     const tempDir = props.entries.filter((entry) => {
-      const searchString = searchInputRef.current?.value.toLocaleLowerCase() || '';
-      return entry.label.toLocaleLowerCase().includes(searchString);
+      const searchString = searchInputRef.current?.value?.toLocaleLowerCase() || '';
+      return entry.label?.toLocaleLowerCase().includes(searchString);
     });
 
     setFilteredDirectory(tempDir);

@@ -215,14 +215,14 @@ const QueueDirectoryTab = (props: OwnProps) => {
         const attributes = workerClient?.attributes as CustomWorkerAttributes;
         const enforcedQueueFilter = attributes?.enforcedQueueFilter?.toLocaleLowerCase();
         if (enforceQueueFilterFromWorker() && enforcedQueueFilter) {
-          return queue.name.toLocaleLowerCase().includes(enforcedQueueFilter);
+          return queue.name?.toLocaleLowerCase().includes(enforcedQueueFilter);
         }
         return queue;
       })
       .filter((queue) => {
-        const enforcedQueueFilter = getGlobalFilter().toLocaleLowerCase();
+        const enforcedQueueFilter = getGlobalFilter()?.toLocaleLowerCase();
         if (shouldEnforceGlobalFilter() && enforcedQueueFilter) {
-          return !queue.name.toLocaleLowerCase().includes(enforcedQueueFilter);
+          return !queue.name?.toLocaleLowerCase().includes(enforcedQueueFilter);
         }
         return queue;
       })
